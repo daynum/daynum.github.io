@@ -1,0 +1,4 @@
+baseURL = 'https://daynum.github.io/'
+languageCode = 'en-us'
+title = "Dinank's blog"
+theme = "hugo-blog-awesome"
