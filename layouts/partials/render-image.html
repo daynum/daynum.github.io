@@ -1,0 +1,2 @@
+{{- $image := .Page.Resources.GetMatch (printf "%s" (.Destination | safeURL)) -}}
+<img width = "{{- $image.Width -}}" height = "{{- $image.Height -}}" alt = "{{- .PlainText | htmlUnescape -}}" src = "{{- $image.RelPermalink -}}">
