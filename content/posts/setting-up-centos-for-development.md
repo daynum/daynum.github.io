@@ -1,7 +1,7 @@
 +++
 title = 'Setting Up Centos for Development'
 date = 2023-12-21T06:25:05+05:30
-draft = true
+draft = false
 +++
 
 {{<table_of_contents>}}
