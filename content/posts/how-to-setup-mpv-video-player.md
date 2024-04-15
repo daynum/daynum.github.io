@@ -4,8 +4,6 @@ date = 2023-11-20T09:00:00+05:30
 draft = false
 +++
 
-{{<table_of_contents>}}
-
 ## Why MPV and not VLC?
 VLC is almost trash because, it:
 

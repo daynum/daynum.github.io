@@ -1,4 +1,35 @@
 baseURL = 'https://daynum.github.io/'
 languageCode = 'en-us'
-title = "Artifact"
-theme = "hugo-blog-awesome"
+title = "BrainBound"
+theme = "ficurinia"
+
+# Copyright
+
+paginate = 15 # number of articles per page in the index
+summaryLength = 30  # number of words for article summaries
+
+[params]
+    author = "Dinank Vashitha"
+    description = "A description for my webSPACE"  # this will be added as metadata
+
+    posts = "posts"  # content directory where to find home page posts; default searches in "posts" and "post"
+    showPostsLink = true  # show or hide the link to the simple post list
+    extraContentDirs = []  # other content directories to render similarly to the home page
+    showcaseDir = "showcase"  # create a content directory that shows a special showcase section in the home page
+
+[menu]
+    # these links will be added to the main navigation menu, sorted by weight
+    # other elements in this menu are added automatically from the "pages" folder
+    # the folder it will look into can be customized with the pages variable
+    # in params above
+    [[menu.main]]
+        identifier = "about"
+        name = "About"
+        url = "/about/"
+        weight = 10
+    # these links (menu.icons) will be added as icon links below the main nav
+    [[menu.icons]]
+        identifier = "github"
+        name = "GitHub"
+        url = "https://github.com/daynum"
+        weight = 10
