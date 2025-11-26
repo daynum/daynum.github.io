@@ -21,10 +21,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
       - name: Set up uv
         uses: astral-sh/setup-uv@v3
         with:
-          version: "3.12"
+          version: "latest"
 
       - name: Install dependencies
         run: uv pip install markdown pyyaml
