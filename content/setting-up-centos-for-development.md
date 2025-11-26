@@ -1,8 +1,7 @@
-+++
-title = 'Setting Up Centos for Development'
-date = 2023-12-21T06:25:05+05:30
-draft = false
-+++
+---
+title: Setting Up Centos for Development
+date: 2023-12-21, 11:55 AM
+---
 
 This is a guide I made for myself.
 These are all the steps I do, when I have a fresh centOS VM and I need to make it development ready. To start coding.

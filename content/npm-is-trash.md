@@ -1,8 +1,7 @@
-+++
-title = 'Npm Is Trash'
-date = 2024-04-15T07:19:15+05:30
-draft = false
-+++
+---
+title: Npm Is Trash
+date: 2024-04-15, 12:49 PM
+---
 
 Yesterday I installed NPM to install a package which can reload local server on file changes for my static website. I was using Arch on my machine, very happy.
 Now, when i tried installing node pakages, it gave me the below error at first.

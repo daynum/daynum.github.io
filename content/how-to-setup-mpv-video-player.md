@@ -1,8 +1,7 @@
-+++
-title = 'How to Setup Mpv Video Player'
-date = 2023-11-20T09:00:00+05:30
-draft = false
-+++
+---
+title: How to Setup Mpv Video Player
+date: 2023-11-20, 2:30 PM
+---
 
 ## Why MPV and not VLC?
 VLC is almost trash because, it:
@@ -61,8 +60,7 @@ To use them, create a sub-directory named _ "portable\_config"_ (exact name) in 
 Now, there are many options you can set in your `mpv.conf` to tailor it to your needs; even I don’t know all of them, I’ll just paste my conf file with comments and link to a few good confs so you can set the options as you want them.
 
 My config:
-{{< highlight bash "linenos=table,linenostart=1" >}}
-
+```ini
 #set the default volume to 100, max to 120
 volume=100
 volume-max=120
@@ -116,9 +114,8 @@ hwdec=auto
 ##These are the heavy shaders I was talking about. You can tinker with them and try if you like it, but it’s not necessary. It’s more like a cherry on the top.
 #gpu-shader-cache-dir="~~/shaders/cache"
 #Shader bindings have been set in input.conf
-{{< / highlight >}}
+```
 Make sure to create a folder named "Screenshots" (to save the screenshots) in the mpv-root folder if you’re using my config.
-
 Links to some other good configs:
 
 1.  [https://github.com/DeadNews/mpv-config/blob/main/mpv.conf](https://github.com/DeadNews/mpv-config/blob/main/mpv.conf)
