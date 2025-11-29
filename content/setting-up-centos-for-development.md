@@ -1,6 +1,6 @@
 ---
 title: Setting Up Centos for Development
-date: 2023-12-21, 11:55 AM
+date: 2023-12-21
 ---
 
 This is a guide I made for myself.

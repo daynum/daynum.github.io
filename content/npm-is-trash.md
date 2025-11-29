@@ -1,6 +1,6 @@
 ---
 title: Npm Is Trash
-date: 2024-04-15, 12:49 PM
+date: 2024-04-15
 ---
 
 Yesterday I installed NPM to install a package which can reload local server on file changes for my static website. I was using Arch on my machine, very happy.

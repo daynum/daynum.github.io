@@ -95,8 +95,8 @@ def build():
     items_html = []
     for p in posts_meta:
         items_html.append(
-            f'<li><a href="posts/{p["slug"]}.html">{p["title"]}</a> '
-            f'<span class="post-date">{p["date"]}</span></li>'
+            f'<li><span class="post-date">{p["date"]}</span>'
+            f'<a class="post-link" href="posts/{p["slug"]}.html">{p["title"]}</a></li>'
         )
     index_body = index_tpl.replace("%%POST_ITEMS%%", "\n".join(items_html))
 
