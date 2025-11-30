@@ -1,6 +1,6 @@
 ---
 title: How to Setup Mpv Video Player
-date: 2023-11-20
+date: 20/11/2023
 ---
 
 ## Why MPV and not VLC?

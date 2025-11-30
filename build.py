@@ -33,6 +33,25 @@ def parse_markdown_with_frontmatter(path):
 def slug_from_filename(path):
     return path.stem  # "hello-world.md" -> "hello-world"
 
+def parse_date_for_sort(date_value):
+    """Turn a frontmatter date into a datetime for sorting (supports dd/mm/yyyy)."""
+    if isinstance(date_value, datetime.datetime):
+        return date_value
+    if isinstance(date_value, datetime.date):
+        return datetime.datetime.combine(date_value, datetime.time())
+    if isinstance(date_value, str):
+        date_str = date_value.strip()
+        for fmt in ("%d/%m/%Y", "%d-%m-%Y", "%Y-%m-%d", "%Y/%m/%d"):
+            try:
+                return datetime.datetime.strptime(date_str, fmt)
+            except ValueError:
+                continue
+        try:
+            return datetime.datetime.fromisoformat(date_str)
+        except ValueError:
+            return None
+    return None
+
 def build():
     # prepare output dir
     if PUBLIC_DIR.exists():
@@ -72,6 +91,7 @@ def build():
         # YAML can parse ISO dates into datetime objects; normalize to string for templating/sorting.
         if isinstance(date, (datetime.date, datetime.datetime)):
             date = date.isoformat()
+        sort_date = parse_date_for_sort(date)
 
         body = post_tpl.replace("%%POST_TITLE%%", title)\
                        .replace("%%POST_DATE%%", date)\
@@ -86,10 +106,11 @@ def build():
             "title": title,
             "date": date,
             "slug": slug,
+            "sort_date": sort_date,
         })
 
     # sort posts by date desc (if date is present)
-    posts_meta.sort(key=lambda p: p["date"], reverse=True)
+    posts_meta.sort(key=lambda p: p["sort_date"] or datetime.datetime.min, reverse=True)
 
     # build index.html
     items_html = []
