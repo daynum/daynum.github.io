@@ -11,6 +11,7 @@ CONTENT_DIR = ROOT / "content"
 TEMPLATES_DIR = ROOT / "templates"
 STATIC_DIR = ROOT / "static"
 PUBLIC_DIR = ROOT / "public"
+SITE_URL = "https://daynum.github.io"
 
 def load_template(name):
     return (TEMPLATES_DIR / name).read_text(encoding="utf-8")
@@ -124,6 +125,18 @@ def build():
     index_page = render_page("Home", index_body, depth=0)
 
     (PUBLIC_DIR / "index.html").write_text(index_page, encoding="utf-8")
+
+    # sitemap.xml + robots.txt so search engines can find every post
+    urls = [f"  <url><loc>{SITE_URL}/</loc></url>"]
+    for p in posts_meta:
+        lastmod = f"<lastmod>{p['sort_date']:%Y-%m-%d}</lastmod>" if p["sort_date"] else ""
+        urls.append(f"  <url><loc>{SITE_URL}/posts/{p['slug']}.html</loc>{lastmod}</url>")
+    sitemap = ('<?xml version="1.0" encoding="UTF-8"?>\n'
+               '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+               + "\n".join(urls) + "\n</urlset>\n")
+    (PUBLIC_DIR / "sitemap.xml").write_text(sitemap, encoding="utf-8")
+    (PUBLIC_DIR / "robots.txt").write_text(
+        f"User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}/sitemap.xml\n", encoding="utf-8")
 
     print("Built site into", PUBLIC_DIR)
 
